@@ -23,15 +23,14 @@ export default function Hero() {
             Trusted Medical
           </span>
 
-          <h1 className="fade-right text-3xl md:text-5xl lg:text-6xl font-bold mt-4 leading-tight text-cyan-600">
-            Best Caring,
+          <h1 className="fade-right text-3xl md:text-5xl lg:text-5xl font-bold mt-4 leading-tight text-cyan-600">
+            Empowering Recovery evidence-based 
             <br />
-            <span className="text-cyan-600/70">Better Doctors</span>
+            <span className="text-cyan-600/70">Physiotherapy & Rehabilitation</span>
           </h1>
 
           <p className="fade-up mt-4 text-gray-600 text-sm md:text-base max-w-lg">
-            Discover world-class medical services, top specialized doctors and
-            advanced treatment facilities. Your health is our top priority.
+            Learn.Recover.Move Better–Dr.Sidhant Bhuyan(P.T)
           </p>
 
           {/* Buttons */}
