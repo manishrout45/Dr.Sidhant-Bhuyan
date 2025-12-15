@@ -126,7 +126,7 @@ export default function PhysioServices() {
               key={index}
               className="
                 service-card rounded-2xl shadow-lg overflow-hidden bg-white
-                transition-all duration-300 group hover:bg-cyan-400 hover:text-white
+                transition-all duration-300 group hover:bg-cyan-600 hover:text-white
               "
             >
               <div className="h-48 w-full overflow-hidden">

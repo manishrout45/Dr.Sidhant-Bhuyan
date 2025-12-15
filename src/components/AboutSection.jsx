@@ -19,25 +19,36 @@ export default function AboutUs() {
           <span className="absolute top-20 right-20 w-3 h-3 bg-cyan-400 rounded-full z-0"></span>
 
           {/* Experience Badge */}
-<div className="
-  absolute 
-  bottom-4 
-  left-1/2 
-  -translate-x-[20%]     /* moves a bit further left */
-  md:left-74              /* on larger screens, keep it left inside image */
-  md:-translate-x-0
-  bg-cyan-600 
-  text-white 
-  px-4 
-  py-2 
-  rounded-full 
-  text-sm 
-  font-semibold 
-  shadow-lg 
-  z-20
-">
+<div
+  className="
+    absolute 
+    bottom-4 
+    left-1/2 
+    -translate-x-[20%]
+
+    md:left-74
+    md:-translate-x-0
+
+    bg-cyan-600 
+    text-white 
+
+    px-2.5    /* very small padding */
+    py-1      /* tight height */
+    text-[10px]  /* small text so it stays one line on mobile */
+
+    sm:px-3 sm:py-1.5
+    sm:text-xs
+
+    rounded-full 
+    font-semibold 
+    shadow-lg 
+    z-20
+    whitespace-nowrap   /* force single line ALWAYS */
+  "
+>
   12+ Years Experience
 </div>
+
 
         </div>
 
