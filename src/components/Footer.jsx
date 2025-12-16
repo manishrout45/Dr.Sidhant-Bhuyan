@@ -102,18 +102,25 @@ export default function Footer() {
 
             <li className="flex items-center gap-3 hover:text-cyan-400 cursor-pointer transition duration-200">
               <HiMail className="text-xl" />  
-              support@drsidhantphysio.com
-            </li>
-            
-            <li className="flex items-center gap-3 hover:text-cyan-400 cursor-pointer transition duration-200">
-              <HiPhone className="text-xl" />
-              +91 98765 43210
+              <a href="mailto:support@drsidhantphysio.com" className="hover:font-semibold">
+                support@drsidhantphysio.com
+              </a>
             </li>
 
             <li className="flex items-center gap-3 hover:text-cyan-400 cursor-pointer transition duration-200">
               <HiPhone className="text-xl" />
-              +91 91234 56789
+              <a href="tel:+919876543210" className="hover:font-semibold">
+                +91 98765 43210
+              </a>
             </li>
+
+            <li className="flex items-center gap-3 hover:text-cyan-400 cursor-pointer transition duration-200">
+              <HiPhone className="text-xl" />
+              <a href="tel:+919123456789" className="hover:font-semibold">
+                +91 91234 56789
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>

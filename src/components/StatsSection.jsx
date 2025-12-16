@@ -75,7 +75,7 @@ export default function StatsSection() {
   }
 
   return (
-    <section className="w-full py-10 flex justify-center bg-gray-50">
+    <section className="w-full py-10 flex justify-center bg-white">
       <div ref={ref} className="bg-cyan-800 rounded-2xl p-6 md:p-10 w-[92%] max-w-6xl shadow">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((item, idx) => (

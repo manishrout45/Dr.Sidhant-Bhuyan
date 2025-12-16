@@ -8,9 +8,8 @@ export default function Navbar() {
 
   const navItems = [
     { title: "Home", path: "/" },
-    { title: "About Us", path: "/about" },
-    { title: "Department", path: "/department" },
-    { title: "Pages", path: "/pages" },
+    { title: "About", path: "/about" },
+    { title: "Service", path: "/service" },
     { title: "Blogs", path: "/blogs" },
     { title: "Contact", path: "/contact" },
   ];
@@ -49,16 +48,21 @@ export default function Navbar() {
 
 
     {/* Right Info */}
-<div className="hidden lg:flex items-center gap-10">
-  <div className="flex items-center gap-2">
-    <FaPhoneAlt className="text-cyan-600" />
-    <span className="text-gray-700 text-sm">+800-456-789</span>
-  </div>
+    <div className="hidden lg:flex items-center gap-10">
+      <div className="flex items-center gap-2">
+      <FaPhoneAlt className="text-cyan-600" />
+      <a href="tel:+800456789" className="text-gray-700 text-sm hover:font-semibold">
+        +800-456-789
+      </a>
+    </div>
 
-  <div className="flex items-center gap-2">
-    <FaEnvelope className="text-cyan-600" />
-    <span className="text-gray-700 text-sm">info@example.com</span>
-  </div>
+    <div className="flex items-center gap-2">
+      <FaEnvelope className="text-cyan-600" />
+      <a href="mailto:info@example.com" className="text-gray-700 text-sm hover:font-semibold">
+        info@example.com
+      </a>
+    </div>
+
 
   <button className="material-bubble bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all">
     Book an Appointment

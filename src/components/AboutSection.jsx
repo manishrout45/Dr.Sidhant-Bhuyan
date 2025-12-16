@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutUs() {
   return (
-    <section className="relative py-16 bg-gray-50 overflow-hidden">
+    <section className="relative py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-10">
 
         {/* Image */}

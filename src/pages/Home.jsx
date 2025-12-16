@@ -17,9 +17,8 @@ export default function Home() {
   return (
     <>
       <PageHeader />
-      <PhysioServices />
-      
       <AboutSection />
+      <PhysioServices />
       <StatsSection />
       <ServiceSection />
 
@@ -131,7 +130,7 @@ export default function Home() {
           Physiotherapy & Rehabilitation
         </h4>
 
-        <h1 className="fade-left text-white text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+        <h1 className="fade-left text-white text-2xl md:text-6xl font-bold leading-tight mb-4">
           Recover Stronger, Move Better  
         </h1>
 

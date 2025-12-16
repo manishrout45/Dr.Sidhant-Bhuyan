@@ -11,82 +11,89 @@ import {
 export default function ServiceSection() {
   const services = [
     {
-      icon: <FaWalking className="text-4xl text-cyan-600" />,
+      icon: <FaWalking />,
       title: "Musculoskeletal Therapy",
-      desc: "Treatment for back pain, neck pain, joint issues, and muscle injuries through advanced physiotherapy.",
+      desc: "Advanced physiotherapy for back pain, neck pain, joints & muscle injuries.",
     },
     {
-      icon: <FaRunning className="text-4xl text-cyan-600" />,
+      icon: <FaRunning />,
       title: "Sports Rehabilitation",
-      desc: "Injury prevention and recovery programs to help athletes safely return to peak performance.",
+      desc: "Recovery & injury-prevention programs to restore peak athletic performance.",
     },
     {
-      icon: <FaUserNurse className="text-4xl text-cyan-600" />,
+      icon: <FaUserNurse />,
       title: "Neurological Physiotherapy",
-      desc: "Therapy for stroke, Parkinson’s, nerve injuries, and mobility conditions to restore function.",
+      desc: "Care for stroke, Parkinson’s, nerve injuries & mobility disorders.",
     },
     {
-      icon: <FaHandHoldingHeart className="text-4xl text-cyan-600" />,
+      icon: <FaHandHoldingHeart />,
       title: "Post-Surgical Rehab",
-      desc: "Personalized recovery plans after orthopedic surgeries like ACL, knee replacement, and spine surgery.",
+      desc: "Personalized rehab after ACL, knee replacement & spine surgery.",
     },
     {
-      icon: <FaChild className="text-4xl text-cyan-600" />,
+      icon: <FaChild />,
       title: "Pediatric Physiotherapy",
-      desc: "Therapy for children with developmental delays, cerebral palsy, and motor coordination issues.",
+      desc: "Therapy for developmental delays, cerebral palsy & coordination issues.",
     },
     {
-      icon: <FaDumbbell className="text-4xl text-cyan-600" />,
+      icon: <FaDumbbell />,
       title: "Geriatric Physiotherapy",
-      desc: "Treatment for seniors focusing on arthritis, balance problems, mobility issues, and chronic pain.",
+      desc: "Pain management, balance training & mobility care for seniors.",
     },
   ];
 
   return (
-    <section
-      className="relative w-full py-20 bg-cover bg-center"
-      style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/doctor-explaining-spine-patient-office_13339-18114.jpg')" }}
-    >
-      {/* White Transparent Overlay */}
-      <div className="absolute inset-0 bg-cyan-900/70"></div>
+    <section className="relative w-full py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
 
-      <div className="relative max-w-7xl mx-auto px-4 text-center">
+        {/* LEFT – TEXT & SERVICES */}
+        <div>
+          <span className="inline-block mb-3 px-4 py-1 bg-cyan-600/10 text-cyan-600 rounded-full text-sm font-semibold">
+            Our Expertise
+          </span>
 
-        {/* Heading */}
-        <h2 className="fade-right text-3xl font-bold text-white">
-          Physiotherapy Services
-        </h2>
-        <p className="fade-up text-cyan-400 mt-2 mb-14">
-          Expert physiotherapy care to restore movement, strength, and well-being.
-        </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Comprehensive Physiotherapy Services
+          </h2>
 
-        {/* Cards Grid */}
-        <div className="fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="
-                bg-white 
-                border border-cyan-400 
-                rounded-xl 
-                p-8 
-                shadow-sm 
-                hover:shadow-lg 
-                hover:scale-[1.03] 
-                transition-all 
-                duration-300 
-                flex flex-col items-center text-center
-              "
-            >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800">
-                {service.title}
-              </h3>
-              <p className="text-gray-500 text-sm mt-3">
-                {service.desc}
-              </p>
-            </div>
-          ))}
+          <p className="mt-4 text-gray-600 max-w-xl">
+            Evidence-based physiotherapy treatments designed to restore
+            movement, relieve pain, and improve quality of life.
+          </p>
+
+          {/* Services List */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-4 p-4 rounded-xl border border-gray-100 
+                hover:shadow-md transition"
+              >
+                <div className="text-cyan-600 text-2xl">
+                  {service.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {service.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT – IMAGE */}
+        <div className="relative">
+          <div className="absolute -inset-4 bg-cyan-100 rounded-3xl"></div>
+
+          <img
+            src="https://img.freepik.com/premium-photo/doctor-explaining-spine-patient-office_13339-18114.jpg"
+            alt="Physiotherapy Treatment"
+            className="relative rounded-3xl shadow-xl w-full object-cover"
+          />
         </div>
 
       </div>

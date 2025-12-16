@@ -41,42 +41,45 @@ export default function TestimonialsSection() {
 
   return (
     <section className="w-full py-12 bg-gray-50 flex flex-col items-center">
-      <h3 className="text-sm font-semibold text-gray-500">OUR TESTIMONIALS</h3>
-      <h2 className="fade-right text-3xl md:text-4xl font-bold mt-1 mb-10">What They Say</h2>
+  <h3 className="text-sm font-semibold text-gray-500">OUR TESTIMONIALS</h3>
+  <h2 className="fade-right text-3xl md:text-4xl font-bold mt-1 mb-10">What They Say</h2>
 
-      <div className="flex items-center justify-center gap-4 w-full max-w-6xl px-4 fade-up">
-        {/* LEFT IMAGE */}
-        <div className="hidden md:block w-1/4 opacity-40">
-          <img
-            src={testimonials[leftIndex].img}
-            alt="left testimonial"
-            className="w-full h-72 object-cover rounded-lg shadow-md"
-          />
-        </div>
+  <div className="flex items-center justify-center gap-4 w-full max-w-6xl px-4 fade-up">
+    {/* LEFT IMAGE WITH CYAN OVERLAY */}
+    <div className="hidden md:block w-1/4 relative rounded-lg overflow-hidden">
+      <img
+        src={testimonials[leftIndex].img}
+        alt="left testimonial"
+        className="w-full h-72 object-cover rounded-lg shadow-md"
+      />
+      <div className="absolute inset-0 bg-cyan-500 bg-opacity-40"></div>
+    </div>
 
-        {/* CENTER CARD */}
-        <div className="w-full md:w-1/2 bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500">
-          <img
-            src={testimonials[index].img}
-            alt="main testimonial"
-            className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
-          />
+    {/* CENTER CARD */}
+    <div className="w-full md:w-1/2 bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500">
+      <img
+        src={testimonials[index].img}
+        alt="main testimonial"
+        className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
+      />
 
-          <p className="text-gray-600 mb-4">{testimonials[index].text}</p>
+      <p className="text-gray-600 mb-4">{testimonials[index].text}</p>
 
-          <h3 className="font-bold text-lg">{testimonials[index].name}</h3>
-          <p className="text-gray-500 text-sm">{testimonials[index].title}</p>
-        </div>
+      <h3 className="font-bold text-lg">{testimonials[index].name}</h3>
+      <p className="text-gray-500 text-sm">{testimonials[index].title}</p>
+    </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="hidden md:block w-1/4 opacity-40">
-          <img
-            src={testimonials[rightIndex].img}
-            alt="right testimonial"
-            className="w-full h-72 object-cover rounded-lg shadow-md"
-          />
-        </div>
-      </div>
-    </section>
+    {/* RIGHT IMAGE WITH CYAN OVERLAY */}
+    <div className="hidden md:block w-1/4 relative rounded-lg overflow-hidden">
+      <img
+        src={testimonials[rightIndex].img}
+        alt="right testimonial"
+        className="w-full h-72 object-cover rounded-lg shadow-md"
+      />
+      <div className="absolute inset-0 bg-cyan-500 bg-opacity-40"></div>
+    </div>
+  </div>
+</section>
+
   );
 }

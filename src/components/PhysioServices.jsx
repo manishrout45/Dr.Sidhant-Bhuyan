@@ -45,7 +45,7 @@ export default function PhysioServices() {
   ];
 
   return (
-    <section className="w-full bg-white py-20">
+    <section className="w-full bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 text-center">
         
         {/* TOP TITLE */}

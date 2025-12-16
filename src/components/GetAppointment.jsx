@@ -4,111 +4,122 @@ import { FiCalendar } from "react-icons/fi";
 
 export default function GetAppointment() {
   return (
-    <section className="w-full bg-white py-12 md:py-20 px-4">
+    <section className="w-full bg-gradient-to-br from-cyan-50 to-white py-14 md:py-20 px-4">
       {/* MAIN CONTAINER */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
         {/* LEFT CONTENT */}
-        <div className="space-y-6">
-          <h4 className="text-cyan-600 font-semibold tracking-wider uppercase flex items-center gap-2">
-            Physiotherapy Care
-            <span className="w-10 h-0.5 bg-cyan-600 inline-block"></span>
-          </h4>
+<div className="space-y-6">
+  <h4 className="text-cyan-600 font-semibold tracking-wider uppercase flex items-center gap-2">
+    Easy Appointment Process
+    <span className="w-10 h-0.5 bg-cyan-600 inline-block"></span>
+  </h4>
 
-          <h1 className="fade-left text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Heal Naturally With  
-            <span className="text-cyan-600"> Expert Physiotherapy</span>
-          </h1>
+  <h1 className="fade-left text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+    Book Your Appointment  
+    <span className="text-cyan-600"> In 3 Simple Steps</span>
+  </h1>
 
-          <p className="fade-up text-gray-600 max-w-xl">
-            We provide specialized physiotherapy services to help you recover faster, reduce pain,
-            improve mobility, and restore your active lifestyle with evidence-based treatments.
-          </p>
+  <p className="fade-up text-gray-600 max-w-xl">
+    Schedule your physiotherapy consultation easily. Just select the treatment you
+    need, choose the right doctor, and confirm your appointment in minutes.
+  </p>
 
-          {/* FEATURES */}
-          <div className="space-y-6 fade-up">
-            <div className="flex items-start gap-3">
-              <FaCheckCircle className="text-cyan-600 text-2xl mt-1" />
-              <div>
-                <h3 className="font-bold text-lg">Pain Relief Therapy</h3>
-                <p className="text-gray-600 text-sm max-w-md">
-                  Advanced hands-on techniques designed to reduce chronic and acute pain effectively.
-                </p>
-              </div>
-            </div>
+  {/* STEPS */}
+  <div className="space-y-6 fade-up">
 
-            <div className="flex items-start gap-3">
-              <FaCheckCircle className="text-cyan-600 text-2xl mt-1" />
-              <div>
-                <h3 className="font-bold text-lg">Posture & Mobility Correction</h3>
-                <p className="text-gray-600 text-sm max-w-md">
-                  Personalized plans to correct posture, restore movement, and prevent long-term issues.
-                </p>
-              </div>
-            </div>
-          </div>
+    {/* STEP 1 */}
+    <div className="flex items-start gap-3">
+      <FaCheckCircle className="text-cyan-600 text-2xl mt-1" />
+      <div>
+        <h3 className="font-bold text-lg">
+          Step 1: Choose Your Therapy
+        </h3>
+        <p className="text-gray-600 text-sm max-w-md">
+          Select the physiotherapy service you require, such as pain relief,
+          sports injury rehabilitation, or posture correction.
+        </p>
+      </div>
+    </div>
 
-          <button className="material-bubble bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-cyan-700 transition-all">
-            Learn More
-          </button>
-        </div>
+    {/* STEP 2 */}
+    <div className="flex items-start gap-3">
+      <FaCheckCircle className="text-cyan-600 text-2xl mt-1" />
+      <div>
+        <h3 className="font-bold text-lg">
+          Step 2: Select Your Doctor from team
+        </h3>
+        <p className="text-gray-600 text-sm max-w-md">
+          Choose a qualified doctor from the relevant department based on
+          availability and expertise.
+        </p>
+      </div>
+    </div>
 
-        {/* RIGHT FORM CARD */}
-        <div className="bg-[#ddeefd] bg-opacity-70 backdrop-blur-lg rounded-3xl p-8 shadow-lg w-full fade-right">
-          <h3 className="text-cyan-600 font-semibold uppercase tracking-wide mb-2">Book Your Session</h3>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Get Appointment</h2>
+    {/* STEP 3 */}
+    <div className="flex items-start gap-3">
+      <FaCheckCircle className="text-cyan-600 text-2xl mt-1" />
+      <div>
+        <h3 className="font-bold text-lg">
+          Step 3: Fill Details & Confirm
+        </h3>
+        <p className="text-gray-600 text-sm max-w-md">
+          Enter your contact details, select a suitable date and time,
+          and submit the form to confirm your appointment.
+        </p>
+      </div>
+    </div>
 
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
+  </div>
 
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="border border-cyan-400 rounded-lg p-3 outline-none w-full"
-            />
+  <button className="material-bubble bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-cyan-700 transition-all">
+    Book Appointment
+  </button>
+</div>
 
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="border border-cyan-400 rounded-lg p-3 outline-none w-full"
-            />
 
-            <input
-              type="text"
-              placeholder="Phone Number"
-              className="border border-cyan-400 rounded-lg p-3 outline-none w-full"
-            />
+       {/* RIGHT APPOINTMENT CARD */}
+<div className="w-full fade-right">
+  <div className="relative bg-white rounded-3xl shadow-2xl border border-cyan-100 overflow-hidden">
 
-            <select className="border border-cyan-400 rounded-lg p-3 outline-none text-gray-500 w-full">
-              <option>Select Therapy</option>
-              <option>Sports Injury Rehab</option>
-              <option>Neck & Back Pain</option>
-              <option>Neurological Therapy</option>
-              <option>Orthopedic Physio</option>
-            </select>
+    {/* TOP ACCENT */}
+    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500" />
 
-            {/* DATE INPUT */}
-            <div className="relative md:col-span-2">
-              <input
-                type="text"
-                placeholder="dd-mm-yyyy"
-                className="border border-cyan-400 rounded-lg p-3 w-full outline-none"
-              />
-              <FiCalendar className="absolute right-3 top-3 text-gray-500 text-xl" />
-            </div>
+    {/* CARD HEADER */}
+    <div className="flex items-center gap-4 px-6 py-5 bg-gradient-to-r from-cyan-50 to-white border-b">
+      <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-cyan-600 text-white shadow-md">
+        <FiCalendar className="text-xl" />
+      </div>
 
-            <textarea
-              placeholder="Describe your concern"
-              className="border border-cyan-400 rounded-lg p-3 outline-none h-32 md:col-span-2"
-            ></textarea>
+      <div>
+        <h3 className="font-extrabold text-lg text-gray-900">
+          Book Appointment
+        </h3>
+        <p className="text-sm text-gray-600">
+          Fast · Secure · No payment required
+        </p>
+      </div>
+    </div>
 
-            <button
-              type="submit"
-              className="material-bubble md:col-span-2 bg-cyan-600 text-white py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-all"
-            >
-              BOOK NOW
-            </button>
-          </form>
-        </div>
+    {/* IFRAME CONTAINER */}
+    <div className="p-3 bg-white">
+      <iframe
+        src="https://manish7xdr.setmore.com"
+        className="w-full h-[520px] rounded-2xl"
+        title="Book Appointment"
+      />
+    </div>
+
+    {/* TRUST FOOTER */}
+    <div className="px-6 py-3 bg-gray-50 border-t text-center">
+      <p className="text-xs text-gray-500">
+        🔒 Your information is safe · ⏱ Instant confirmation
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
       </div>
     </section>
