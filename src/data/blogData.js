@@ -55,7 +55,7 @@ export const blogData = [
     description:
       "Simple and safe physiotherapist-approved home exercises that help improve mobility, reduce pain, and speed up recovery.",
     image: "https://img.freepik.com/free-photo/group-people-exercising-together-outdoors_23-2151061449.jpg?ga=GA1.1.1312737827.1743758138&semt=ais_hybrid&w=740&q=80",
-    category: "Exercise",
+    category: "Exercise & Fitness",
     date: "Oct 18, 2025",
     content: `
       <p>Physiotherapy home exercises are essential for long-term recovery. These movements strengthen muscles, improve flexibility, and reduce pain without needing equipment.</p>
