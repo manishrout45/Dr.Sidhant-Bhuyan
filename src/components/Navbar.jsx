@@ -111,16 +111,16 @@ export default function Navbar() {
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-4 text-white text-lg">
             <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-              <FaFacebookF className="hover:text-gray-200" />
+              <FaFacebookF className="hover:text-cyan-400" />
             </a>
             <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
-              <FaYoutube className="hover:text-gray-200" />
+              <FaYoutube className="hover:text-cyan-400" />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-              <FaLinkedinIn className="hover:text-gray-200" />
+              <FaLinkedinIn className="hover:text-cyan-400" />
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-              <FaInstagram className="hover:text-gray-200" />
+              <FaInstagram className="hover:text-cyan-400" />
             </a>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function Navbar() {
           </ul>
 
           <div className="mt-8 border-t pt-5">
-            <button className="w-full bg-cyan-600 text-white py-3 rounded-full font-semibold">
+            <button className="material-bubble w-full bg-cyan-600 text-white py-3 rounded-full font-semibold">
               Book Appointment
             </button>
 

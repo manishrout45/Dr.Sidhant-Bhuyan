@@ -6,7 +6,7 @@ import { FaCalendarAlt, FaStethoscope, FaUserMd, FaUserInjured,
 
 export default function Hero() {
   return (
-<section className="relative w-full bg-white pt-10 pb-32 -mt-10 overflow-hidden">
+<section className="relative w-full bg-white pt-10 pb-24 -mt-20 sm:-mt-10 overflow-hidden">
 
 {/* Background Shape with Image & Cyan Overlay – EXTRA WIDE */}
 <div
@@ -63,7 +63,7 @@ export default function Hero() {
       </p>
 
       <div className="mt-6 flex flex-wrap justify-center gap-4">
-        <button className="bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-cyan-700 transition">
+        <button className="material-bubble bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-cyan-700 transition">
           Book Appointment
         </button>
 
