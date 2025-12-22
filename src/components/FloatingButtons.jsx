@@ -14,7 +14,7 @@ export default function FloatingButtons() {
 
         {/* Button */}
         <a
-          href="https://wa.me/91XXXXXXXXXX"
+          href="https://wa.me/919861607985"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group w-12 h-12 rounded-full
@@ -43,7 +43,7 @@ export default function FloatingButtons() {
 
         {/* Button */}
         <a
-          href="tel:+91XXXXXXXXXX"
+          href="tel:+919861607985"
           className="relative group w-12 h-12 rounded-full
                      bg-gradient-to-br from-blue-400 to-blue-600
                      flex items-center justify-center 

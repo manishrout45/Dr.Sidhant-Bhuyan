@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -18,6 +18,7 @@ export default function Navbar() {
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
     { title: "Service", path: "/service" },
+    { title: "Testimonials", path: "/testimonials" },
     { title: "Blogs", path: "/blogs" },
     { title: "Contact", path: "/contact" },
   ];
@@ -53,26 +54,26 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <FaPhoneAlt className="text-cyan-600" />
               <a
-                href="tel:+919861119866"
+                href="tel:+919861607985"
                 className="text-gray-700 text-sm hover:font-semibold"
               >
-                +91 98611 19866
+                +91 98616 07985
               </a>
             </div>
 
             <div className="flex items-center gap-2">
               <FaEnvelope className="text-cyan-600" />
               <a
-                href="mailto:drsidhantbhuyan@gmail.com"
+                href="mailto:sidhantbhuyan1000@gmail.com"
                 className="text-gray-700 text-sm hover:font-semibold"
               >
-                drsidhantbhuyan@gmail.com
+                 sidhantbhuyan1000@gmail.com
               </a>
             </div>
 
-            <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md">
+            <Link to="/contact" className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md">
               Book an Appointment
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -110,16 +111,16 @@ export default function Navbar() {
 
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-4 text-white text-lg">
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/share/1Djs9kbhSV/" target="_blank" rel="noreferrer">
               <FaFacebookF className="hover:text-cyan-400" />
             </a>
-            <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
+            <a href="https://www.youtube.com/@Dr.SidhantBhuyan" target="_blank" rel="noreferrer">
               <FaYoutube className="hover:text-cyan-400" />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">
               <FaLinkedinIn className="hover:text-cyan-400" />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw" target="_blank" rel="noreferrer">
               <FaInstagram className="hover:text-cyan-400" />
             </a>
           </div>
@@ -154,21 +155,24 @@ export default function Navbar() {
           </ul>
 
           <div className="mt-8 border-t pt-5">
-            <button className="material-bubble w-full bg-cyan-600 text-white py-3 rounded-full font-semibold">
+            <Link
+              to="/contact"
+              className="material-bubble w-full inline-block text-center bg-cyan-600 text-white py-3 rounded-full font-semibold"
+            >
               Book Appointment
-            </button>
+            </Link>
 
             <div className="flex justify-center gap-6 mt-6 text-cyan-600 text-xl">
-              <a href="https://www.facebook.com/sidhant.bhuyan/" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/share/1Djs9kbhSV/" target="_blank" rel="noreferrer">
                 <FaFacebookF />
               </a>
-              <a href="https://youtube.com/@dr.sidhantbhuyan?si=YZiIfa8egSaQqly9" target="_blank" rel="noreferrer">
+              <a href="https://www.youtube.com/@Dr.SidhantBhuyan" target="_blank" rel="noreferrer">
                 <FaYoutube />
               </a>
-              <a href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">
                 <FaLinkedinIn />
               </a>
-              <a href="https://www.instagram.com/sidhant_bhuyan_/" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw" target="_blank" rel="noreferrer">
                 <FaInstagram />
               </a>
             </div>

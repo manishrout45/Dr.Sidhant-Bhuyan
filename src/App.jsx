@@ -6,6 +6,7 @@ import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 import About from "./pages/About";
 import Service from "./pages/Service";
+import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact"
 import FloatingButtons from "./components/FloatingButtons";
 import ScrollToTop from "./components/ScrollToTop";
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/blogs/:id" element={<BlogDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
 

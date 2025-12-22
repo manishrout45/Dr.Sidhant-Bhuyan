@@ -1,4 +1,4 @@
-import PhysioServices from "../components/PhysioServices";
+import PhysioServicesDetail from "../components/PhysioServicesDetail";
 import ServiceSection from "../components/ServiceSection";
 import useScrollFade from "../hooks/useScrollFade";  
 
@@ -20,7 +20,7 @@ export default function Service() {
   </div>
 </section>
 
-      <PhysioServices />
+      <PhysioServicesDetail />
       <ServiceSection />
 
     </>

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+html {
+  scroll-behavior: smooth;
+}
+
 .material-bubble {
   position: relative;
   overflow: hidden;

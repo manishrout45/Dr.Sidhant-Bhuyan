@@ -47,7 +47,7 @@ export default function Hero() {
     {/* TEXT FIRST */}
     <div className="text-center max-w-3xl mx-auto">
       <span className="inline-block px-4 py-1 bg-white/10 text-white rounded-full text-sm font-semibold">
-        Trusted Physiotherapy Care
+        Trusted Physiotherapy & Rehabilitation Care
       </span>
 
       <h1 className="text-3xl md:text-5xl font-bold mt-4 leading-tight text-white">
@@ -63,9 +63,13 @@ export default function Hero() {
       </p>
 
       <div className="mt-6 flex flex-wrap justify-center gap-4">
-        <button className="material-bubble bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-cyan-700 transition">
-          Book Appointment
-        </button>
+        <a
+        href="#get-appointment"
+        className="material-bubble inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-cyan-700 transition"
+      >
+        Book Appointment
+      </a>
+
 
         <button className="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:border-cyan-700 hover:text-cyan-700 transition">
           Call Now

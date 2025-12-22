@@ -40,7 +40,7 @@ export default function Footer() {
 
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/sidhant.bhuyan/"
+                href="https://www.facebook.com/share/1Djs9kbhSV/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 bg-cyan-900 rounded-full flex items-center justify-center hover:bg-cyan-400 transition"
@@ -49,7 +49,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://youtube.com/@dr.sidhantbhuyan?si=YZiIfa8egSaQqly9"
+                href="https://www.youtube.com/@Dr.SidhantBhuyan"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 bg-cyan-900 rounded-full flex items-center justify-center hover:bg-cyan-400 transition"
@@ -58,7 +58,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.instagram.com/sidhant_bhuyan_/"
+                href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 bg-cyan-900 rounded-full flex items-center justify-center hover:bg-cyan-400 transition"
@@ -67,7 +67,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118"
+                href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 bg-cyan-900 rounded-full flex items-center justify-center hover:bg-cyan-400 transition"
@@ -134,32 +134,23 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <HiMail className="text-xl" />
               <a
-                href="mailto:support@drsidhantphysio.com"
+                href="mailto:sidhantbhuyan1000@gmail.com"
                 className="hover:text-cyan-400"
               >
-                support@drsidhantphysio.com
+                 sidhantbhuyan1000@gmail.com
               </a>
             </li>
 
             <li className="flex items-center gap-3">
               <HiPhone className="text-xl" />
               <a
-                href="tel:+919861119866"
+                href="tel:+919861607985"
                 className="hover:text-cyan-400"
               >
-                +91 98611 19866
+                +91 98616 07985
               </a>
             </li>
 
-            <li className="flex items-center gap-3">
-              <HiPhone className="text-xl" />
-              <a
-                href="tel:+919861119866"
-                className="hover:text-cyan-400"
-              >
-                +91 98611 19866
-              </a>
-            </li>
           </ul>
         </div>
       </div>
