@@ -9,6 +9,7 @@ import {
   FaLinkedinIn,
   FaInstagram,
   FaYoutube,
+  FaUserShield,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -31,7 +32,6 @@ export default function Navbar() {
       {/* TOP INFO BAR */}
       <div className="w-full bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 z-50 h-[60px] md:h-[70px] flex items-center">
         <div className="max-w-7xl mx-auto px-4 w-full flex items-center justify-between">
-          
           {/* Logo Section */}
           <NavLink to="/" className="flex items-center gap-2 flex-nowrap">
             <img
@@ -50,7 +50,7 @@ export default function Navbar() {
           </NavLink>
 
           {/* Right Info */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-6">
             <div className="flex items-center gap-2">
               <FaPhoneAlt className="text-cyan-600" />
               <a
@@ -67,12 +67,24 @@ export default function Navbar() {
                 href="mailto:sidhantbhuyan1000@gmail.com"
                 className="text-gray-700 text-sm hover:font-semibold"
               >
-                 sidhantbhuyan1000@gmail.com
+                sidhantbhuyan1000@gmail.com
               </a>
             </div>
 
-            <Link to="/contact" className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md">
+            <Link
+              to="/contact"
+              className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md"
+            >
               Book an Appointment
+            </Link>
+
+            {/* ADMIN LOGIN BUTTON */}
+            <Link
+              to="/admin/login"
+              className="flex items-center gap-2 border border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white px-4 py-2 rounded-full text-sm font-semibold transition"
+            >
+              <FaUserShield />
+              Admin
             </Link>
           </div>
 
@@ -89,7 +101,6 @@ export default function Navbar() {
       {/* MAIN NAVBAR */}
       <div className="w-full bg-cyan-600 shadow fixed top-[10px] md:top-[70px] left-0 z-40 h-[60px] flex items-center">
         <div className="max-w-7xl mx-auto px-4 w-full flex items-center justify-between">
-          
           {/* Nav Links */}
           <ul className="hidden md:flex gap-6 text-white font-medium">
             {navItems.map((item) => (
@@ -111,16 +122,32 @@ export default function Navbar() {
 
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-4 text-white text-lg">
-            <a href="https://www.facebook.com/share/1Djs9kbhSV/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.facebook.com/share/1Djs9kbhSV/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaFacebookF className="hover:text-cyan-400" />
             </a>
-            <a href="https://www.youtube.com/@Dr.SidhantBhuyan" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.youtube.com/@Dr.SidhantBhuyan"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaYoutube className="hover:text-cyan-400" />
             </a>
-            <a href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaLinkedinIn className="hover:text-cyan-400" />
             </a>
-            <a href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaInstagram className="hover:text-cyan-400" />
             </a>
           </div>
@@ -129,11 +156,15 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <div
-        className={`fixed inset-0 bg-black/50 z-[60] ${
-          mobileOpen ? "block" : "hidden"
-        }`}
+        className={`fixed inset-0 z-[60] transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        } bg-black/50`}
       >
-        <div className="fixed right-0 top-0 h-full w-72 bg-white shadow-xl p-5">
+        <div
+          className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl p-5 transform transition-transform duration-300 ${
+            mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
           <button
             onClick={() => setMobileOpen(false)}
             className="absolute top-4 right-4 text-2xl text-gray-600"
@@ -154,27 +185,30 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-8 border-t pt-5">
+          <div className="mt-8 border-t pt-5 space-y-4">
             <Link
               to="/contact"
-              className="material-bubble w-full inline-block text-center bg-cyan-600 text-white py-3 rounded-full font-semibold"
+              onClick={() => setMobileOpen(false)}
+              className="w-full inline-block text-center bg-cyan-600 text-white py-3 rounded-full font-semibold"
             >
               Book Appointment
             </Link>
 
+            {/* ADMIN LOGIN (MOBILE) */}
+            <Link
+              to="/admin/login"
+              onClick={() => setMobileOpen(false)}
+              className="w-full flex items-center justify-center gap-2 border border-cyan-600 text-cyan-600 py-3 rounded-full font-semibold"
+            >
+              <FaUserShield />
+              Admin Login
+            </Link>
+
             <div className="flex justify-center gap-6 mt-6 text-cyan-600 text-xl">
-              <a href="https://www.facebook.com/share/1Djs9kbhSV/" target="_blank" rel="noreferrer">
-                <FaFacebookF />
-              </a>
-              <a href="https://www.youtube.com/@Dr.SidhantBhuyan" target="_blank" rel="noreferrer">
-                <FaYoutube />
-              </a>
-              <a href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw" target="_blank" rel="noreferrer">
-                <FaInstagram />
-              </a>
+              <FaFacebookF />
+              <FaYoutube />
+              <FaLinkedinIn />
+              <FaInstagram />
             </div>
           </div>
         </div>

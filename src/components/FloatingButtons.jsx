@@ -3,7 +3,7 @@ import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 
 export default function FloatingButtons() {
   return (
-    <div className="fixed bottom-6 sm:bottom-16 right-6 flex flex-col gap-2 z-[999]">
+    <div className="fixed bottom-6 sm:bottom-16 right-6 flex flex-col gap-2 z-[50]">
       {/* WHATSAPP BUTTON + TEXT */}
       <div className="flex items-center gap-3 group">
         {/* Text */}
