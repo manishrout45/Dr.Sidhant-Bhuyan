@@ -1,101 +1,84 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { blogData } from "../data/blogData";
+import { useEffect, useState } from "react";
 import { FiCalendar, FiTag, FiArrowLeft } from "react-icons/fi";
+import { getBlog } from "../data/blogApi";
 
 export default function BlogDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [blog, setBlog] = useState(null);
 
-  const blog = blogData.find((b) => b.id === id);
+  useEffect(() => {
+    getBlog(id).then(setBlog);
+  }, [id]);
 
-  if (!blog)
+  // Convert YouTube link to embed URL
+  const getYoutubeEmbed = (url) => {
+    if (!url) return null;
+    const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+    return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+  };
+
+  if (!blog) {
     return (
       <h2 className="text-center py-20 text-xl text-gray-500">
-        Blog not found.
+        Loading blog...
       </h2>
     );
+  }
 
   return (
     <>
-{/* Hero Section */}
-<section
-  className="relative w-full h-[50vh] bg-center bg-cover flex items-center justify-center -mt-16 sm:-mt-4"
-  style={{
-    backgroundImage:
-      "url('https://img.freepik.com/premium-photo/background-clouds-fractal-foam-abstract-lights-subject-art-spirituality-painting-music-visual-effects-creative-technologies_27525-14339.jpg?ga=GA1.1.1312737827.1743758138&semt=ais_hybrid&w=740&q=80')",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-cyan-600/50"></div>
+      {/* BACK BUTTON */}
+      <button
+        onClick={() => navigate(-1)}
+        className="inline-flex items-center gap-2 text-cyan-600 font-medium mt-10 px-4 hover:underline"
+      >
+        <FiArrowLeft /> Back
+      </button>
 
-  {/* Heading */}
-  <div className="relative z-10 text-center">
-    <h1 className="text-white text-4xl md:text-5xl font-bold">
-      {blog.category} Blogs
-    </h1>
-  </div>
-</section>
-
-      {/* MAIN CONTAINER */}
-      <section className="max-w-5xl mx-auto px-4 py-14">
-
-        {/* BACK BUTTON */}
-        <button
-          onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-2 text-sm font-medium text-cyan-600 hover:text-cyan-700 transition mb-6"
-        >
-          <FiArrowLeft size={16} />
-          Back to Blogs
-        </button>
-
-        {/* FEATURE IMAGE */}
-        <div className="relative rounded-2xl overflow-hidden shadow-lg">
+      <section className="max-w-5xl mx-auto px-4 py-10 space-y-8">
+        {/* IMAGE */}
+        {blog.image && (
           <img
-            src={blog.image}
+            src={blog.image} // ✅ use full Cloudinary URL directly
             alt={blog.title}
-            className="w-full h-[420px] object-cover"
+            className="w-full h-[420px] md:h-[500px] object-cover rounded-xl shadow-lg"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+        )}
 
-          {/* CATEGORY BADGE */}
-          <span className="absolute top-5 left-5 bg-cyan-600 text-white text-sm px-4 py-1 rounded-full flex items-center gap-2">
-            <FiTag size={14} />
-            {blog.category}
+        {/* CATEGORY */}
+        {blog.category && (
+          <span className="inline-flex items-center gap-2 mt-4 bg-cyan-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+            <FiTag /> {blog.category}
           </span>
-        </div>
-
-        {/* META INFO */}
-        <div className="flex flex-wrap items-center gap-6 mt-6 text-sm text-gray-500">
-          <div className="flex items-center gap-2">
-            <FiCalendar />
-            <span>{blog.date}</span>
-          </div>
-
-          <div>
-            <span className="font-medium text-gray-700">
-              Grace Physiotherapy
-            </span>
-          </div>
-        </div>
+        )}
 
         {/* TITLE */}
-        <h1 className="text-3xl md:text-4xl font-bold mt-6 leading-tight">
-          {blog.title}
-        </h1>
+        <h1 className="text-3xl md:text-4xl font-bold mt-4">{blog.title}</h1>
+
+        {/* DATE */}
+        <div className="flex items-center gap-2 text-gray-500 text-sm mt-2">
+          <FiCalendar /> {blog.date || "Grace Physiotherapy"}
+        </div>
 
         {/* CONTENT */}
         <article
-          className="mt-8 prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-a:text-cyan-600 prose-strong:text-gray-800"
+          className="prose prose-cyan max-w-none mt-8"
           dangerouslySetInnerHTML={{ __html: blog.content }}
         />
 
-        {/* DIVIDER */}
-        <div className="mt-12 border-t pt-8 text-sm text-gray-500">
-          <p>
-            Need professional help? Book an appointment with our expert
-            physiotherapists for personalized care.
-          </p>
-        </div>
+        {/* YOUTUBE VIDEO AT END */}
+        {blog.video && getYoutubeEmbed(blog.video) && (
+          <div className="mt-10 aspect-video rounded-xl overflow-hidden shadow-lg border">
+            <iframe
+              src={getYoutubeEmbed(blog.video)}
+              className="w-full h-full"
+              allowFullScreen
+              title="YouTube Video"
+            ></iframe>
+          </div>
+        )}
       </section>
     </>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function BlogSidebar({
-  blogData,
+  blogs,
   selectedCategory,
   setSelectedCategory,
   searchTerm,
@@ -17,16 +17,15 @@ export default function BlogSidebar({
     "Rehabilitation",
     "Posture & Ergonomics",
     "Exercise & Fitness",
+    "Other",
   ];
 
-  // Suggestions based on title
-  const suggestions = blogData.filter((blog) =>
+  const suggestions = blogs.filter((blog) =>
     blog.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="bg-white p-5 rounded-xl shadow sticky top-24 space-y-6">
-      
       {/* SEARCH */}
       <div className="relative">
         <input
@@ -37,15 +36,9 @@ export default function BlogSidebar({
             setSearchTerm(e.target.value);
             setShowSuggestions(true);
           }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              setShowSuggestions(false);
-            }
-          }}
-          className="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          className="w-full px-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-cyan-500 outline-none"
         />
 
-        {/* SUGGESTIONS */}
         {showSuggestions && searchTerm && suggestions.length > 0 && (
           <ul className="absolute z-20 mt-1 w-full bg-white border rounded-lg shadow max-h-48 overflow-y-auto">
             {suggestions.slice(0, 5).map((blog) => (
@@ -72,7 +65,7 @@ export default function BlogSidebar({
             <li
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`cursor-pointer font-medium transition ${
+              className={`cursor-pointer font-medium ${
                 selectedCategory === cat
                   ? "text-cyan-600"
                   : "text-gray-700 hover:text-cyan-600"

@@ -100,7 +100,7 @@ export default function GetAppointment() {
               {/* IFRAME */}
               <div className="p-3 bg-white">
                 <iframe
-                  src="https://manish7xdr.setmore.com"
+                  src="https://drsidhantbhuyan.setmore.com"
                   className="w-full h-[520px] rounded-2xl"
                   title="Book Appointment"
                 />

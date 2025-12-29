@@ -10,6 +10,8 @@ import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact"
 import FloatingButtons from "./components/FloatingButtons";
 import ScrollToTop from "./components/ScrollToTop";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
       <ScrollToTop />
     <FloatingButtons />
       <Routes>
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogDetails />} />
