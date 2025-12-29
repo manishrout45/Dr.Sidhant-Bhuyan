@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiUser, FiLock } from "react-icons/fi";
 
-const API = "https://dr-sidhant-backend.onrender.com";
+const API =
+  import.meta.env.VITE_API_URL ||
+  "https://dr-sidhant-backend.onrender.com";
+
 
 export default function AdminLogin() {
   const navigate = useNavigate();
