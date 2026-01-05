@@ -14,7 +14,7 @@ import ServiceMarqueeRTL from "../components/ServiceMarqueeRTL";
 import useScrollFade from "../hooks/useScrollFade";
 
 import { getBlogs } from "../data/blogApi";
-import OurTeam from "../components/OurTeam";
+
 
 export default function Home() {
   useScrollFade();
@@ -42,7 +42,6 @@ export default function Home() {
     <>
       <PageHeader />
       <AboutSection />
-      <OurTeam />
       <PhysioServices />
       <StatsSection />
       <ServiceSection />

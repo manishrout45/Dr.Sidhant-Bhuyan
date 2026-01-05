@@ -205,11 +205,11 @@ export default function PhysioServicesDetail() {
         <h3 className="text-cyan-600 font-semibold mb-2">WHAT WE DO</h3>
 
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Our Services at Kyra Physiotherapy & Rehabilitation Centre
+          Our Services 
         </h2>
 
         <p className="max-w-3xl mx-auto text-gray-600 text-lg mb-16">
-          Kyra Physiotherapy & Rehabilitation Centre is a comprehensive 
+          Kyra & Kaivalya Physiotherapy & Rehabilitation Centre is a comprehensive 
           healing and recovery facility delivering ethical, evidence‑based, and patient‑centric care. 
           Our multidisciplinary approach ensures safe, effective, and holistic rehabilitation for patients across all age groups.
         </p>

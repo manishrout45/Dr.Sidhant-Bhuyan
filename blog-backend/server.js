@@ -76,7 +76,7 @@ app.post("/admin/login", async (req, res) => {
     if (!admin) {
       admin = await Admin.create({
         username: "admin",
-        password: "admin123",
+        password: "Admin@123",
       });
     }
 
