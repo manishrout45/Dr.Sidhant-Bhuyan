@@ -1,4 +1,3 @@
-import OurTeam from "../components/OurTeam";
 import useScrollFade from "../hooks/useScrollFade";  
 import { FaCheckCircle } from "react-icons/fa";
 export default function About() {
@@ -95,7 +94,6 @@ export default function About() {
       </div>
     </section>
 
-    <OurTeam />
 
       {/* WHY CHOOSE US */}
           <section className="w-full bg-cyan-50 py-12 md:py-16">
