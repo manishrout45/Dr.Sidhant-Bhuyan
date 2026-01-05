@@ -30,55 +30,73 @@ export default function BlogDetails() {
   return (
     <>
       {/* BACK BUTTON */}
-      <button
-        onClick={() => navigate(-1)}
-        className="inline-flex items-center gap-2 text-cyan-600 font-medium mt-10 px-4 hover:underline"
-      >
-        <FiArrowLeft /> Back
-      </button>
+      <div className="max-w-7xl mx-auto px-4 mt-8">
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 text-cyan-600 font-medium hover:underline"
+        >
+          <FiArrowLeft /> Back
+        </button>
+      </div>
 
-      <section className="max-w-5xl mx-auto px-4 py-10 space-y-8">
-        {/* IMAGE */}
-        {blog.image && (
+      {/* TOP FULL WIDTH IMAGE */}
+      {blog.image && (
+        <div className="max-w-7xl mx-auto px-4 mt-6">
           <img
-            src={blog.image} // ✅ use full Cloudinary URL directly
+            src={blog.image}
             alt={blog.title}
-            className="w-full h-[420px] md:h-[500px] object-cover rounded-xl shadow-lg"
+            className="w-full h-[420px] object-cover rounded-xl shadow-md"
           />
-        )}
-
-        {/* CATEGORY */}
-        {blog.category && (
-          <span className="inline-flex items-center gap-2 mt-4 bg-cyan-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-            <FiTag /> {blog.category}
-          </span>
-        )}
-
-        {/* TITLE */}
-        <h1 className="text-3xl md:text-4xl font-bold mt-4">{blog.title}</h1>
-
-        {/* DATE */}
-        <div className="flex items-center gap-2 text-gray-500 text-sm mt-2">
-          <FiCalendar /> {blog.date || "Grace Physiotherapy"}
         </div>
+      )}
 
-        {/* CONTENT */}
-        <article
-          className="prose prose-cyan max-w-none mt-8"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
+      {/* CONTENT + VIDEO SECTION */}
+      <section className="max-w-7xl mx-auto px-4 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+          
+          {/* LEFT CONTENT */}
+          <div className="lg:col-span-2 space-y-4">
+            {/* CATEGORY */}
+            {blog.category && (
+              <span className="inline-flex items-center gap-2 bg-cyan-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                <FiTag /> {blog.category}
+              </span>
+            )}
 
-        {/* YOUTUBE VIDEO AT END */}
-        {blog.video && getYoutubeEmbed(blog.video) && (
-          <div className="mt-10 aspect-video rounded-xl overflow-hidden shadow-lg border">
-            <iframe
-              src={getYoutubeEmbed(blog.video)}
-              className="w-full h-full"
-              allowFullScreen
-              title="YouTube Video"
-            ></iframe>
+            {/* TITLE */}
+            <h1 className="text-3xl md:text-4xl font-bold">
+              {blog.title}
+            </h1>
+
+            {/* AUTHOR / DATE */}
+            <div className="flex items-center gap-2 text-gray-500 text-sm">
+              <FiCalendar />
+              {blog.date || "Grace Physiotherapy"}
+            </div>
+
+            {/* DESCRIPTION / CONTENT */}
+            <article
+              className="prose prose-cyan max-w-none pt-4"
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
           </div>
-        )}
+
+          {/* RIGHT VIDEO BOX */}
+          {blog.video && getYoutubeEmbed(blog.video) && (
+            <div className="w-full">
+              <div className="bg-slate-800 rounded-xl p-4 shadow-lg">
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    src={getYoutubeEmbed(blog.video)}
+                    className="w-full h-full"
+                    allowFullScreen
+                    title="YouTube Video"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </section>
     </>
   );
