@@ -14,6 +14,8 @@ import {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [pagesOpen, setPagesOpen] = useState(false);
+  const [mobilePagesOpen, setMobilePagesOpen] = useState(false);
 
   const navItems = [
     { title: "Home", path: "/" },
@@ -26,37 +28,26 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Prevent content shift */}
-      <div className="pt-[120px] md:pt-[140px]"></div>
+      {/* Spacer */}
+      <div className="pt-[120px] md:pt-[140px]" />
 
       {/* TOP INFO BAR */}
-      <div className="w-full bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 z-50 h-[60px] md:h-[70px] flex items-center">
-        <div className="max-w-7xl mx-auto px-4 w-full flex items-center justify-between">
-          {/* Logo Section */}
-          <NavLink to="/" className="flex items-center gap-2 flex-nowrap">
-            <img
-              src="/assets/logo-2.png"
-              alt="Logo 1"
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
-            />
-            <span className="text-[14px] sm:text-[18px] md:text-[20px] font-extrabold text-gray-900 whitespace-nowrap">
+      <div className="w-full bg-white shadow-sm border-b fixed top-0 left-0 z-50 h-[60px] md:h-[70px] flex items-center">
+        <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+          {/* Logo */}
+          <NavLink to="/" className="flex items-center gap-2">
+            <img src="/assets/logo-2.png" className="w-12 h-12 object-contain" />
+            <span className="text-lg md:text-xl font-extrabold">
               DR. SIDHANT BHUYAN
             </span>
-            <img
-              src="/assets/logo-1.png"
-              alt="Logo 2"
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
-            />
+            <img src="/assets/logo-1.png" className="w-12 h-12 object-contain" />
           </NavLink>
 
-          {/* Right Info */}
+          {/* Desktop Right */}
           <div className="hidden lg:flex items-center gap-6">
             <div className="flex items-center gap-2">
               <FaPhoneAlt className="text-cyan-600" />
-              <a
-                href="tel:+919861607985"
-                className="text-gray-700 text-sm hover:font-semibold"
-              >
+              <a href="tel:+919861607985" className="text-sm">
                 +91 98616 07985
               </a>
             </div>
@@ -65,7 +56,7 @@ export default function Navbar() {
               <FaEnvelope className="text-cyan-600" />
               <a
                 href="mailto:sidhantbhuyan1000@gmail.com"
-                className="text-gray-700 text-sm hover:font-semibold"
+                className="text-sm"
               >
                 sidhantbhuyan1000@gmail.com
               </a>
@@ -73,15 +64,14 @@ export default function Navbar() {
 
             <Link
               to="/contact"
-              className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md"
+              className="bg-cyan-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-cyan-700"
             >
-              Book an Appointment
+              Book Appointment
             </Link>
 
-            {/* ADMIN LOGIN BUTTON */}
             <Link
               to="/admin/login"
-              className="flex items-center gap-2 border border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white px-4 py-2 rounded-full text-sm font-semibold transition"
+              className="flex items-center gap-2 border border-cyan-600 text-cyan-600 px-4 py-2 rounded-full hover:bg-cyan-600 hover:text-white"
             >
               <FaUserShield />
               Admin
@@ -99,10 +89,10 @@ export default function Navbar() {
       </div>
 
       {/* MAIN NAVBAR */}
-      <div className="w-full bg-cyan-600 shadow fixed top-[10px] md:top-[70px] left-0 z-40 h-[60px] flex items-center">
-        <div className="max-w-7xl mx-auto px-4 w-full flex items-center justify-between">
-          {/* Nav Links */}
-          <ul className="hidden md:flex gap-6 text-white font-medium">
+      <div className="w-full bg-cyan-600 fixed top-[10px] md:top-[70px] left-0 z-40 h-[60px] flex items-center shadow">
+        <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex gap-6 text-white font-medium items-center">
             {navItems.map((item) => (
               <NavLink
                 key={item.title}
@@ -118,61 +108,79 @@ export default function Navbar() {
                 {item.title}
               </NavLink>
             ))}
+
+            {/* Pages Dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={() => setPagesOpen(true)}
+              onMouseLeave={() => setPagesOpen(false)}
+            >
+              <button className="px-4 py-2 rounded-full hover:bg-white/20 flex items-center gap-1">
+                Pages
+                <span
+                  className={`transition-transform duration-300 ${
+                    pagesOpen ? "rotate-180" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <ul
+                className={`absolute top-12 left-0 bg-white text-gray-800 rounded-lg shadow-lg w-64 overflow-hidden
+                  transform transition-all duration-300 ease-out
+                  ${
+                    pagesOpen
+                      ? "opacity-100 scale-100 translate-y-0 visible"
+                      : "opacity-0 scale-95 -translate-y-2 invisible"
+                  }
+                `}
+              >
+                <Link
+                  to="/kyra-physiotherapy-centre"
+                  className="block px-5 py-3 hover:bg-gray-100"
+                >
+                  Kyra Physiotherapy Centre
+                </Link>
+                <Link
+                  to="/kaivalya-physiotherapy-kendra"
+                  className="block px-5 py-3 hover:bg-gray-100"
+                >
+                  Kaivalya Physiotherapy Kendra
+                </Link>
+              </ul>
+            </li>
           </ul>
 
           {/* Social Icons */}
-          <div className="hidden md:flex items-center gap-4 text-white text-lg">
-            <a
-              href="https://www.facebook.com/share/1Djs9kbhSV/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaFacebookF className="hover:text-cyan-400" />
-            </a>
-            <a
-              href="https://www.youtube.com/@Dr.SidhantBhuyan"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaYoutube className="hover:text-cyan-400" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dr-sidhant-bhuyan-p-t-121a93118?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedinIn className="hover:text-cyan-400" />
-            </a>
-            <a
-              href="https://www.instagram.com/sidhant_bhuyan_?igsh=YnowcmN6am94d2Fw"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaInstagram className="hover:text-cyan-400" />
-            </a>
+          <div className="hidden md:flex gap-4 text-white text-lg">
+            <FaFacebookF />
+            <FaYoutube />
+            <FaLinkedinIn />
+            <FaInstagram />
           </div>
         </div>
       </div>
 
       {/* MOBILE MENU */}
       <div
-        className={`fixed inset-0 z-[60] transition-opacity duration-300 ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        } bg-black/50`}
+        className={`fixed inset-0 z-[60] bg-black/50 transition-opacity ${
+          mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
         <div
-          className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl p-5 transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full w-72 bg-white p-5 shadow-xl transform transition-transform duration-300 ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <button
             onClick={() => setMobileOpen(false)}
-            className="absolute top-4 right-4 text-2xl text-gray-600"
+            className="absolute top-4 right-4 text-2xl"
           >
             <FaTimes />
           </button>
 
-          <ul className="mt-12 space-y-6 text-gray-700 font-semibold text-lg">
+          <ul className="mt-12 space-y-6 font-semibold text-lg">
             {navItems.map((item) => (
               <NavLink
                 key={item.title}
@@ -183,34 +191,51 @@ export default function Navbar() {
                 {item.title}
               </NavLink>
             ))}
-          </ul>
 
-          <div className="mt-8 border-t pt-5 space-y-4">
-            <Link
-              to="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="w-full inline-block text-center bg-cyan-600 text-white py-3 rounded-full font-semibold"
-            >
-              Book Appointment
-            </Link>
+            {/* Mobile Pages */}
+            <div>
+              <button
+                onClick={() => setMobilePagesOpen(!mobilePagesOpen)}
+                className="w-full flex justify-between items-center hover:text-cyan-600"
+              >
+                Pages
+                <span
+                  className={`transition-transform duration-300 ${
+                    mobilePagesOpen ? "rotate-180" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </button>
 
-            {/* ADMIN LOGIN (MOBILE) */}
-            <Link
-              to="/admin/login"
-              onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2 border border-cyan-600 text-cyan-600 py-3 rounded-full font-semibold"
-            >
-              <FaUserShield />
-              Admin Login
-            </Link>
-
-            <div className="flex justify-center gap-6 mt-6 text-cyan-600 text-xl">
-              <FaFacebookF />
-              <FaYoutube />
-              <FaLinkedinIn />
-              <FaInstagram />
+              <div
+                className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out
+                  ${
+                    mobilePagesOpen
+                      ? "max-h-40 opacity-100 mt-3"
+                      : "max-h-0 opacity-0"
+                  }
+                `}
+              >
+                <div className="space-y-3 text-base">
+                  <NavLink
+                    to="/kyra-physiotherapy-centre"
+                    onClick={() => setMobileOpen(false)}
+                    className="block hover:text-cyan-600"
+                  >
+                    Kyra Physiotherapy Centre
+                  </NavLink>
+                  <NavLink
+                    to="/kaivalya-physiotherapy-kendra"
+                    onClick={() => setMobileOpen(false)}
+                    className="block hover:text-cyan-600"
+                  >
+                    Kaivalya Physiotherapy Kendra
+                  </NavLink>
+                </div>
+              </div>
             </div>
-          </div>
+          </ul>
         </div>
       </div>
     </>
