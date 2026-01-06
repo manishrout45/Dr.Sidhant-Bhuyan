@@ -83,15 +83,19 @@ export default function KyraPhysiotherapyCentre() {
           {/* RIGHT MAP */}
           <div className="relative">
             <div className="absolute -inset-3 bg-cyan-600/20 rounded-2xl blur-xl"></div>
+
             <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
-              <iframe
+                <iframe
                 title="Kyra Physiotherapy Centre Location"
-                src="https://www.google.com/maps?q=Kyra%20Physiotherapy%20Centre%20Bhubaneswar&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55447.481513481296!2d85.73370404828688!3d20.24994370186589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a9e3f6fd68f3%3A0x860d67e5b526338a!2sKyra%20Physiotherapy%20%26%20Rehabilitation%20Centre!5e0!3m2!1sen!2sin!4v1767699165038!5m2!1sen!2sin"
                 className="w-full h-[420px] border-0"
                 loading="lazy"
-              ></iframe>
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                ></iframe>
             </div>
-          </div>
+            </div>
+
         </div>
       </div>
     </div>
