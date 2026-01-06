@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -17,14 +17,15 @@ export default function Navbar() {
   const [pagesOpen, setPagesOpen] = useState(false);
   const [mobilePagesOpen, setMobilePagesOpen] = useState(false);
 
-  const navItems = [
-    { title: "Home", path: "/" },
-    { title: "About", path: "/about" },
-    { title: "Service", path: "/service" },
-    { title: "Testimonials", path: "/testimonials" },
-    { title: "Blogs", path: "/blogs" },
-    { title: "Contact", path: "/contact" },
-  ];
+  const location = useLocation();
+
+  const isPagesActive =
+    location.pathname === "/kyra-physiotherapy-centre" ||
+    location.pathname === "/kaivalya-physiotherapy-kendra";
+
+  useEffect(() => {
+    if (isPagesActive) setPagesOpen(true);
+  }, [isPagesActive]);
 
   return (
     <>
@@ -54,10 +55,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-2">
               <FaEnvelope className="text-cyan-600" />
-              <a
-                href="mailto:sidhantbhuyan1000@gmail.com"
-                className="text-sm"
-              >
+              <a href="mailto:sidhantbhuyan1000@gmail.com" className="text-sm">
                 sidhantbhuyan1000@gmail.com
               </a>
             </div>
@@ -91,65 +89,77 @@ export default function Navbar() {
       {/* MAIN NAVBAR */}
       <div className="w-full bg-cyan-600 fixed top-[10px] md:top-[70px] left-0 z-40 h-[60px] flex items-center shadow">
         <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
-          {/* Desktop Menu */}
+          {/* Desktop Menu (UNCHANGED) */}
           <ul className="hidden md:flex gap-6 text-white font-medium items-center">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.title}
-                to={item.path}
-                className={({ isActive }) =>
-                  `px-4 py-2 rounded-full transition ${
-                    isActive
-                      ? "bg-white text-cyan-600 shadow"
-                      : "hover:bg-white/20"
-                  }`
-                }
-              >
-                {item.title}
-              </NavLink>
-            ))}
+            <NavLink to="/" className={({ isActive }) =>
+              `px-4 py-2 rounded-full ${isActive ? "bg-white text-cyan-600 shadow" : "hover:bg-white/20"}`
+            }>
+              Home
+            </NavLink>
 
-            {/* Pages Dropdown */}
+            <NavLink to="/about" className={({ isActive }) =>
+              `px-4 py-2 rounded-full ${isActive ? "bg-white text-cyan-600 shadow" : "hover:bg-white/20"}`
+            }>
+              About
+            </NavLink>
+
+            <NavLink to="/service" className={({ isActive }) =>
+              `px-4 py-2 rounded-full ${isActive ? "bg-white text-cyan-600 shadow" : "hover:bg-white/20"}`
+            }>
+              Service
+            </NavLink>
+
+            {/* Pages */}
             <li
               className="relative"
               onMouseEnter={() => setPagesOpen(true)}
               onMouseLeave={() => setPagesOpen(false)}
             >
-              <button className="px-4 py-2 rounded-full hover:bg-white/20 flex items-center gap-1">
+              <button
+                className={`px-4 py-2 rounded-full flex items-center gap-1 ${
+                  isPagesActive
+                    ? "bg-white text-cyan-600 shadow"
+                    : "hover:bg-white/20"
+                }`}
+              >
                 Pages
-                <span
-                  className={`transition-transform duration-300 ${
-                    pagesOpen ? "rotate-180" : ""
-                  }`}
-                >
+                <span className={`transition-transform ${pagesOpen ? "rotate-180" : ""}`}>
                   ▾
                 </span>
               </button>
 
               <ul
                 className={`absolute top-12 left-0 bg-white text-gray-800 rounded-lg shadow-lg w-64 overflow-hidden
-                  transform transition-all duration-300 ease-out
-                  ${
-                    pagesOpen
-                      ? "opacity-100 scale-100 translate-y-0 visible"
-                      : "opacity-0 scale-95 -translate-y-2 invisible"
-                  }
-                `}
+                transition-all duration-300 ${
+                  pagesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
               >
-                <Link
-                  to="/kyra-physiotherapy-centre"
-                  className="block px-5 py-3 hover:bg-gray-100"
-                >
+                <Link to="/kyra-physiotherapy-centre" className="block px-5 py-3 hover:bg-gray-100">
                   Kyra Physiotherapy Centre
                 </Link>
-                <Link
-                  to="/kaivalya-physiotherapy-kendra"
-                  className="block px-5 py-3 hover:bg-gray-100"
-                >
+                <Link to="/kaivalya-physiotherapy-kendra" className="block px-5 py-3 hover:bg-gray-100">
                   Kaivalya Physiotherapy Kendra
                 </Link>
               </ul>
             </li>
+
+            <NavLink to="/testimonials" className={({ isActive }) =>
+              `px-4 py-2 rounded-full ${isActive ? "bg-white text-cyan-600 shadow" : "hover:bg-white/20"}`
+            }>
+              Testimonials
+            </NavLink>
+
+            <NavLink to="/blogs" className={({ isActive }) =>
+              `px-4 py-2 rounded-full ${isActive ? "bg-white text-cyan-600 shadow" : "hover:bg-white/20"}`
+            }>
+              Blogs
+            </NavLink>
+
+            <NavLink to="/contact" className={({ isActive }) =>
+              `px-4 py-2 rounded-full ${isActive ? "bg-white text-cyan-600 shadow" : "hover:bg-white/20"}`
+            }>
+              Contact
+            </NavLink>
           </ul>
 
           {/* Social Icons */}
@@ -162,7 +172,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU (RESTORED & FIXED) */}
       <div
         className={`fixed inset-0 z-[60] bg-black/50 transition-opacity ${
           mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -181,60 +191,59 @@ export default function Navbar() {
           </button>
 
           <ul className="mt-12 space-y-6 font-semibold text-lg">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.title}
-                to={item.path}
-                onClick={() => setMobileOpen(false)}
-                className="block hover:text-cyan-600"
-              >
-                {item.title}
-              </NavLink>
-            ))}
+            <NavLink to="/" onClick={() => setMobileOpen(false)} className="block">
+              Home
+            </NavLink>
+            <NavLink to="/about" onClick={() => setMobileOpen(false)} className="block">
+              About
+            </NavLink>
+            <NavLink to="/service" onClick={() => setMobileOpen(false)} className="block">
+              Service
+            </NavLink>
 
             {/* Mobile Pages */}
             <div>
               <button
                 onClick={() => setMobilePagesOpen(!mobilePagesOpen)}
-                className="w-full flex justify-between items-center hover:text-cyan-600"
+                className="w-full flex justify-between items-center"
               >
                 Pages
-                <span
-                  className={`transition-transform duration-300 ${
-                    mobilePagesOpen ? "rotate-180" : ""
-                  }`}
-                >
+                <span className={`transition-transform ${mobilePagesOpen ? "rotate-180" : ""}`}>
                   ▾
                 </span>
               </button>
 
               <div
-                className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out
-                  ${
-                    mobilePagesOpen
-                      ? "max-h-40 opacity-100 mt-3"
-                      : "max-h-0 opacity-0"
-                  }
-                `}
+                className={`ml-4 overflow-hidden transition-all duration-300 ${
+                  mobilePagesOpen ? "max-h-40 mt-3" : "max-h-0"
+                }`}
               >
-                <div className="space-y-3 text-base">
-                  <NavLink
-                    to="/kyra-physiotherapy-centre"
-                    onClick={() => setMobileOpen(false)}
-                    className="block hover:text-cyan-600"
-                  >
-                    Kyra Physiotherapy Centre
-                  </NavLink>
-                  <NavLink
-                    to="/kaivalya-physiotherapy-kendra"
-                    onClick={() => setMobileOpen(false)}
-                    className="block hover:text-cyan-600"
-                  >
-                    Kaivalya Physiotherapy Kendra
-                  </NavLink>
-                </div>
+                <NavLink
+                  to="/kyra-physiotherapy-centre"
+                  onClick={() => setMobileOpen(false)}
+                  className="block mt-2"
+                >
+                  Kyra Physiotherapy Centre
+                </NavLink>
+                <NavLink
+                  to="/kaivalya-physiotherapy-kendra"
+                  onClick={() => setMobileOpen(false)}
+                  className="block mt-2"
+                >
+                  Kaivalya Physiotherapy Kendra
+                </NavLink>
               </div>
             </div>
+
+            <NavLink to="/testimonials" onClick={() => setMobileOpen(false)} className="block">
+              Testimonials
+            </NavLink>
+            <NavLink to="/blogs" onClick={() => setMobileOpen(false)} className="block">
+              Blogs
+            </NavLink>
+            <NavLink to="/contact" onClick={() => setMobileOpen(false)} className="block">
+              Contact
+            </NavLink>
           </ul>
         </div>
       </div>
