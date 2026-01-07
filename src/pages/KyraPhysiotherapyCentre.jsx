@@ -19,7 +19,7 @@ export default function KyraPhysiotherapyCentre() {
 
             {/* Heading */}
             <div className="relative z-10 text-center">
-            <h1 className="text-white text-5xl font-bold">Kyra Physiotherapy Centre</h1>
+            <h1 className="text-white text-5xl font-bold">Kyra Physiotherapy & Rehabilitation Centre</h1>
         </div>
      </section>
 
@@ -34,7 +34,7 @@ export default function KyraPhysiotherapyCentre() {
             </h2>
 
             <p className="text-gray-700 leading-relaxed mb-8">
-              Kyra Physiotherapy Centre provides personalized physiotherapy
+              Kyra Physiotherapy & Rehabilitation Centre provides personalized physiotherapy
               programs using modern techniques and evidence-based practices.
               Our goal is to relieve pain, restore mobility, and promote long-
               term physical wellness through compassionate care.
@@ -45,7 +45,7 @@ export default function KyraPhysiotherapyCentre() {
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                 <FaMapMarkerAlt className="text-3xl text-cyan-600 mb-3" />
                 <h3 className="font-semibold text-lg mb-1">Address</h3>
-                <p className="text-gray-600">Bhubaneswar, Odisha</p>
+                <p className="text-gray-600">backside of, K7/677, BMC Kalyan Mandap, in front of BMC park, Kalinganagar, Bhubaneswar, Odisha 751029</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
@@ -57,7 +57,7 @@ export default function KyraPhysiotherapyCentre() {
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                 <FaClock className="text-3xl text-cyan-600 mb-3" />
                 <h3 className="font-semibold text-lg mb-1">Timings</h3>
-                <p className="text-gray-600">Mon – Sat, 9 AM – 7 PM</p>
+                <p className="text-gray-600">6:30AM to 10:30PM (Everyday)</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">

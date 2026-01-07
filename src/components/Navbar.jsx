@@ -122,7 +122,7 @@ export default function Navbar() {
                     : "hover:bg-white/20"
                 }`}
               >
-                Pages
+                Our Centres
                 <span className={`transition-transform ${pagesOpen ? "rotate-180" : ""}`}>
                   ▾
                 </span>
@@ -207,7 +207,7 @@ export default function Navbar() {
                 onClick={() => setMobilePagesOpen(!mobilePagesOpen)}
                 className="w-full flex justify-between items-center"
               >
-                Pages
+                Our Centres
                 <span className={`transition-transform ${mobilePagesOpen ? "rotate-180" : ""}`}>
                   ▾
                 </span>

@@ -19,7 +19,7 @@ export default function KaivalyaPhysiotherapyKendra() {
 
                 {/* Heading */}
                 <div className="relative z-10 text-center">
-                    <h1 className="text-white text-5xl font-bold">KaivalyaPhysiotherapyKendra</h1>
+                    <h1 className="text-white text-5xl font-bold">Kaivalya Physiotherapy & Rehabilitation Kendra</h1>
                 </div>
             </section>
 
@@ -34,7 +34,7 @@ export default function KaivalyaPhysiotherapyKendra() {
             </h2>
 
             <p className="text-gray-700 leading-relaxed mb-8">
-              Kaivalya Physiotherapy Kendra focuses on holistic rehabilitation
+              Kaivalya Physiotherapy & Rehabilitation Kendra focuses on holistic rehabilitation
               through personalized treatment plans. We combine modern
               physiotherapy techniques with compassionate care to help patients
               regain mobility, reduce pain, and improve overall quality of life.
@@ -45,7 +45,7 @@ export default function KaivalyaPhysiotherapyKendra() {
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                 <FaMapMarkerAlt className="text-3xl text-cyan-600 mb-3" />
                 <h3 className="font-semibold text-lg mb-1">Address</h3>
-                <p className="text-gray-600">Bhubaneswar, Odisha</p>
+                <p className="text-gray-600">N 5, 15, Block N5, IRC Village, Nayapalli, Bhubaneswar, Odisha 751015</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
@@ -57,7 +57,7 @@ export default function KaivalyaPhysiotherapyKendra() {
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                 <FaClock className="text-3xl text-cyan-600 mb-3" />
                 <h3 className="font-semibold text-lg mb-1">Timings</h3>
-                <p className="text-gray-600">Mon – Sat, 9 AM – 6 PM</p>
+                <p className="text-gray-600">6:30AM to 10:30PM (Sunday closed)</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
