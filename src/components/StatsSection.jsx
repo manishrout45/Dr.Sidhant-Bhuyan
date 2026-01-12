@@ -1,6 +1,6 @@
 // StatsSection.jsx
 import React from "react";
-import { FaUserInjured, FaDumbbell, FaHandsHelping, FaStar } from "react-icons/fa";
+import { FaUserInjured, FaDumbbell, FaHandHoldingMedical, FaStar } from "react-icons/fa";
 
 function formatNumber(n) {
   if (n >= 1000) return n.toLocaleString();
@@ -22,9 +22,9 @@ export default function StatsSection() {
       suffix: "+",
     },
     {
-      icon: <FaHandsHelping className="text-3xl" />,
-      label: "Rehabilitation Methods Applied",
-      value: 12,
+      icon: <FaHandHoldingMedical className="text-3xl" />,
+      label: "Conditions treated",
+      value: 100,
       suffix: "+",
     },
     {

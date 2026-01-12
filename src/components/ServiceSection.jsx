@@ -87,7 +87,7 @@ export default function ServiceSection() {
 
         {/* RIGHT – IMAGE */}
         <div className="relative">
-          <div className="absolute -inset-4 bg-cyan-100 rounded-3xl"></div>
+          <div className="absolute -inset-4 bg-cyan-800 rounded-3xl"></div>
 
           <img
             src="https://img.freepik.com/premium-photo/doctor-explaining-spine-patient-office_13339-18114.jpg"
