@@ -50,12 +50,13 @@ export default function Hero() {
         Trusted Physiotherapy & Rehabilitation Care
       </span>
 
-      <h1 className="text-3xl md:text-5xl font-bold mt-4 leading-tight text-white">
+      <h1 className="text-3xl md:text-5xl font-bold mt-4 leading-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)]">
         Evidence-Based <br />
         <span className="text-white">
           Physiotherapy & Rehabilitation
         </span>
       </h1>
+
 
       <p className="mt-4 text-gray-200 text-sm md:text-base">
         Learn • Recover • Move Better <br />

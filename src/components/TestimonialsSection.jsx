@@ -7,30 +7,27 @@ import { FaPlay } from "react-icons/fa";
 const testimonials = [
   {
     id: 1,
-    name: "Jason Ramos",
-    title: "Doctor of Health Medicine",
+    name: "Budhadev Jena",
+    title: "Patient",
     text:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec sem accumsan, ullamcorper felis non, bibendum velit.",
-    img:
-      "https://img.freepik.com/free-photo/young-handsome-guy-wearing-checkered-shirt-doing-happy-thumbs-up-standing-white-wall_141793-30732.jpg",
+      "After a traumatic brain injury with right-side paralysis, I was bedridden. With Dr. Sidhant Bhuyan’s physiotherapy, I recovered and started walking independently within 2 months. Truly grateful.",
+    img: "/assets/images/testimonials/BudhadevJena.jpeg",
   },
   {
     id: 2,
-    name: "Sarah Mitchell",
-    title: "Physiotherapist",
+    name: "SAIJAL THAKUR",
+    title: "Patient",
     text:
-      "Duis rutrum tellus vel leo fermentum, vitae ullamcorper nunc porttitor. Suspendisse potenti.",
-    img:
-      "https://img.freepik.com/free-photo/portrait-cheerful-young-girl-showing-thumb-up_114579-81638.jpg",
+      "I suffered from fibromyalgia with severe full-body pain for 3–4 years. After Dr. Sidhant Bhuyan’s treatment, my pain improved drastically in 7 days.",
+    img: "/assets/images/testimonials/SAIJALTHAKUR.jpeg",
   },
   {
     id: 3,
-    name: "David Patel",
-    title: "Senior Orthopedic Specialist",
+    name: "Braja bandhu jena",
+    title: "Patient",
     text:
-      "Aliquam erat volutpat. Vivamus sit amet neque eget erat hendrerit vehicula vitae sed arcu.",
-    img:
-      "https://img.freepik.com/free-photo/caucasian-young-man-wearing-pink-shirt-crossing-hands-isolated-orange-wall_141793-35791.jpg",
+      "I fractured my wrist in an accident and had severe pain. Physiotherapy helped me regain full movement.",
+    img: "/assets/images/testimonials/BrajaBandhuJena.jpeg",
   },
 ];
 
@@ -52,6 +49,7 @@ const videoTestimonials = [
 
 export default function TestimonialsSection() {
   const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
   const [activeVideo, setActiveVideo] = useState(null);
 
   /* ===============================
@@ -59,14 +57,18 @@ export default function TestimonialsSection() {
   ================================ */
   useEffect(() => {
     const interval = setInterval(() => {
+      setPrevIndex(index);
       setIndex((prev) => (prev + 1) % testimonials.length);
     }, 4000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [index]);
 
   const leftIndex =
     (index - 1 + testimonials.length) % testimonials.length;
   const rightIndex = (index + 1) % testimonials.length;
+
+  const direction = index > prevIndex ? "right" : "left";
 
   return (
     <>
@@ -77,49 +79,58 @@ export default function TestimonialsSection() {
         <h3 className="text-sm font-semibold text-gray-500">
           OUR TESTIMONIALS
         </h3>
-        <h2 className="text-3xl md:text-4xl font-bold mt-1 mb-10">
+        <h2 className="text-3xl sm:text-4xl font-bold mt-1 mb-10 text-center px-2">
           What They Say
         </h2>
 
-        <div className="flex items-center justify-center gap-4 w-full max-w-6xl px-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-6xl px-4">
           {/* LEFT IMAGE */}
-          <div className="hidden md:block w-1/4 relative rounded-lg overflow-hidden">
+          <div className="hidden md:block w-1/4 relative rounded-lg overflow-hidden flex-shrink-0">
             <img
               src={testimonials[leftIndex].img}
               alt="left testimonial"
-              className="w-full h-72 object-cover rounded-lg shadow-md"
+              className="w-full h-64 md:h-72 object-cover rounded-lg shadow-md"
             />
-            <div className="absolute inset-0 bg-cyan-500/40" />
+            <div className="absolute inset-0 bg-cyan-500/40 rounded-lg" />
           </div>
 
-          {/* CENTER CARD */}
-          <div className="w-full md:w-1/2 bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500">
-            <img
-              src={testimonials[index].img}
-              alt="main testimonial"
-              className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
-            />
+          {/* CENTER SLIDING CARD */}
+          <div className="relative w-full md:w-1/2 min-h-[350px] md:min-h-[400px] max-h-[600px] overflow-auto">
+            <div
+              key={index}
+              className={`absolute inset-0 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100
+              flex flex-col items-center text-center
+              ${
+                direction === "right"
+                  ? "animate-slide-in-right"
+                  : "animate-slide-in-left"
+              }`}
+            >
+              <img
+                src={testimonials[index].img}
+                alt="main testimonial"
+                className="w-28 h-28 sm:w-32 sm:h-32 object-cover rounded-full shadow-md mb-5"
+              />
 
-            <p className="text-gray-600 mb-4">
-              {testimonials[index].text}
-            </p>
+              <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                {testimonials[index].text}
+              </p>
 
-            <h3 className="font-bold text-lg">
-              {testimonials[index].name}
-            </h3>
-            <p className="text-gray-500 text-sm">
-              {testimonials[index].title}
-            </p>
+              <h3 className="font-bold text-lg sm:text-xl">
+                {testimonials[index].name}
+              </h3>
+              <p className="text-gray-500 text-sm">{testimonials[index].title}</p>
+            </div>
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="hidden md:block w-1/4 relative rounded-lg overflow-hidden">
+          <div className="hidden md:block w-1/4 relative rounded-lg overflow-hidden flex-shrink-0">
             <img
               src={testimonials[rightIndex].img}
               alt="right testimonial"
-              className="w-full h-72 object-cover rounded-lg shadow-md"
+              className="w-full h-64 md:h-72 object-cover rounded-lg shadow-md"
             />
-            <div className="absolute inset-0 bg-cyan-500/40" />
+            <div className="absolute inset-0 bg-cyan-500/40 rounded-lg" />
           </div>
         </div>
       </section>
@@ -127,62 +138,57 @@ export default function TestimonialsSection() {
       {/* ===============================
          VIDEO TESTIMONIALS SECTION
       ================================ */}
-<section className="w-full py-16 bg-white">
-  <div className="max-w-5xl mx-auto px-4 text-center">
-    <h3 className="text-sm font-semibold text-gray-500">
-      VIDEO TESTIMONIALS
-    </h3>
-    <h2 className="text-3xl md:text-4xl font-bold mt-1 mb-10">
-      Real Stories From Real People
-    </h2>
+      <section className="w-full py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h3 className="text-sm font-semibold text-gray-500">
+            VIDEO TESTIMONIALS
+          </h3>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-1 mb-10 text-center">
+            Real Stories From Real People
+          </h2>
 
-    {/* FLEX LAYOUT TO REMOVE ODD GAPS */}
-    <div className="flex flex-col md:flex-row items-center justify-center gap-10">
-      {videoTestimonials.map((video) => (
-        <div
-          key={video.id}
-          className="relative w-[260px] sm:w-[280px] md:w-[300px] aspect-[9/16] rounded-2xl overflow-hidden shadow-lg bg-black"
-        >
-          {activeVideo === video.id ? (
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1`}
-              title={video.title}
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          ) : (
-            <>
-              {/* Thumbnail */}
-              <img
-                src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                alt={video.title}
-                className="w-full h-full object-cover opacity-90"
-              />
-
-              {/* Play Button */}
-              <button
-                onClick={() => setActiveVideo(video.id)}
-                className="absolute inset-0 flex items-center justify-center"
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {videoTestimonials.map((video) => (
+              <div
+                key={video.id}
+                className="relative w-full sm:w-[280px] md:w-[380px] aspect-video rounded-2xl overflow-hidden shadow-lg bg-black"
               >
-                <span className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg hover:scale-110 transition">
-                  <FaPlay />
-                </span>
-              </button>
+                {activeVideo === video.id ? (
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover opacity-90"
+                    />
 
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 text-sm font-medium">
-                {video.title}
+                    <button
+                      onClick={() => setActiveVideo(video.id)}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <span className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg hover:scale-110 transition">
+                        <FaPlay />
+                      </span>
+                    </button>
+
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 text-sm font-medium">
+                      {video.title}
+                    </div>
+                  </>
+                )}
               </div>
-            </>
-          )}
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
     </>
   );
 }

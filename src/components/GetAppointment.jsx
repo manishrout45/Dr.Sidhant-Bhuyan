@@ -11,6 +11,7 @@ export default function GetAppointment() {
     mobile: "",
     email: "",
     service: "",
+    centre: "",
   });
 
   const handleChange = (e) => {
@@ -23,6 +24,7 @@ export default function GetAppointment() {
     const message = `
 Hello, I would like to book an appointment.
 
+Centre: ${formData.centre}
 Name: ${formData.name}
 Age: ${formData.age}
 Gender: ${formData.gender}
@@ -31,7 +33,7 @@ Email: ${formData.email || "Not provided"}
 Service: ${formData.service}
     `;
 
-    const whatsappURL = `https://wa.me/919337303150?text=${encodeURIComponent(
+    const whatsappURL = `https://wa.me/919861607985?text=${encodeURIComponent(
       message
     )}`;
 
@@ -53,13 +55,13 @@ Service: ${formData.service}
           </h4>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Book Your Appointment
-            <span className="text-cyan-600"> via WhatsApp</span>
+            Book Your
+            <span className="text-cyan-600">Appointment</span>
           </h1>
 
           <div className="space-y-5">
             {[
-              "Choose your therapy",
+              "Choose your centre & therapy",
               "Fill your basic details",
               "Confirm instantly on WhatsApp",
             ].map((step, i) => (
@@ -88,15 +90,29 @@ Service: ${formData.service}
                 <FiCalendar />
               </div>
               <div>
-                <h3 className="font-bold text-lg">WhatsApp Appointment</h3>
+                <h3 className="font-bold text-lg">Book Your Appointment Today</h3>
                 <p className="text-sm text-gray-600">
-                  No login · Instant response
+                  Ask any queries in WhatsApp
                 </p>
               </div>
             </div>
 
             {/* FORM */}
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
+
+              {/* CENTRE */}
+              <select
+                name="centre"
+                required
+                className="w-full border rounded-xl px-4 py-3"
+                onChange={handleChange}
+              >
+                <option value="">Choose Centre</option>
+                
+                <option>Kyra PhysioTherapy Centre</option>
+                <option>Kaivalya PhysioTherapy Kendra</option>
+              </select>
+
               <input
                 type="text"
                 name="name"

@@ -77,3 +77,5 @@ html {
 .btn-outline-red {
   @apply border border-red-500 text-red-500 py-2 rounded-lg hover:bg-red-50;
 }
+
+
