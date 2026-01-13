@@ -10,7 +10,6 @@ export default function GetAppointment() {
     gender: "",
     mobile: "",
     email: "",
-    service: "",
     centre: "",
   });
 
@@ -30,7 +29,6 @@ Age: ${formData.age}
 Gender: ${formData.gender}
 Mobile: ${formData.mobile}
 Email: ${formData.email || "Not provided"}
-Service: ${formData.service}
     `;
 
     const whatsappURL = `https://wa.me/919861607985?text=${encodeURIComponent(
@@ -55,13 +53,13 @@ Service: ${formData.service}
           </h4>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Book Your
+            Book Your{" "}
             <span className="text-cyan-600">Appointment</span>
           </h1>
 
           <div className="space-y-5">
             {[
-              "Choose your centre & therapy",
+              "Choose your centre",
               "Fill your basic details",
               "Confirm instantly on WhatsApp",
             ].map((step, i) => (
@@ -90,7 +88,9 @@ Service: ${formData.service}
                 <FiCalendar />
               </div>
               <div>
-                <h3 className="font-bold text-lg">Book Your Appointment Today</h3>
+                <h3 className="font-bold text-lg">
+                  Book Your Appointment Today
+                </h3>
                 <p className="text-sm text-gray-600">
                   Ask any queries in WhatsApp
                 </p>
@@ -108,9 +108,8 @@ Service: ${formData.service}
                 onChange={handleChange}
               >
                 <option value="">Choose Centre</option>
-                
-                <option>Kyra PhysioTherapy Centre</option>
-                <option>Kaivalya PhysioTherapy Kendra</option>
+                <option>Kyra Physiotherapy & Rehabilitation Centre</option>
+                <option>Kaivalya Physiotherapy & Rehabilitation Kendra</option>
               </select>
 
               <input
@@ -160,20 +159,6 @@ Service: ${formData.service}
                 className="w-full border rounded-xl px-4 py-3"
                 onChange={handleChange}
               />
-
-              <select
-                name="service"
-                required
-                className="w-full border rounded-xl px-4 py-3"
-                onChange={handleChange}
-              >
-                <option value="">Select Service</option>
-                <option>Pain Relief Therapy</option>
-                <option>Sports Injury Rehab</option>
-                <option>Posture Correction</option>
-                <option>Neurological Physiotherapy</option>
-                <option>Orthopedic Physiotherapy</option>
-              </select>
 
               <button
                 type="submit"
